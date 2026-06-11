@@ -17,6 +17,7 @@
 4. PytdxFetcher (Priority 2) - 来自 pytdx 库（通达信）
 5. BaostockFetcher (Priority 3) - 来自 baostock 库
 6. YfinanceFetcher (Priority 4) - 来自 yfinance 库
+7. OkxFetcher (Priority 5) - 加密货币专用数据源
 
 【未配置 TUSHARE_TOKEN 时】
 1. EfinanceFetcher (Priority 0) - 最高优先级，来自 efinance 库
@@ -26,6 +27,7 @@
 5. BaostockFetcher (Priority 3) - 来自 baostock 库
 6. YfinanceFetcher (Priority 4) - 来自 yfinance 库
 7. LongbridgeFetcher (Priority 5) - 长桥 OpenAPI（美股/港股兜底）
+8. OkxFetcher (Priority 5) - 加密货币专用数据源
 
 提示：优先级数字越小越优先，同优先级按初始化顺序排列
 """
@@ -40,6 +42,7 @@ from .yfinance_fetcher import YfinanceFetcher
 from .longbridge_fetcher import LongbridgeFetcher
 from .finnhub_fetcher import FinnhubFetcher
 from .alphavantage_fetcher import AlphaVantageFetcher
+from .okx_fetcher import OkxFetcher, is_crypto_symbol
 from .us_index_mapping import is_us_index_code, is_us_stock_code, get_us_index_yf_symbol, US_INDEX_MAPPING
 
 __all__ = [
@@ -54,9 +57,11 @@ __all__ = [
     'LongbridgeFetcher',
     'FinnhubFetcher',
     'AlphaVantageFetcher',
+    'OkxFetcher',
     'is_us_index_code',
     'is_us_stock_code',
     'is_hk_stock_code',
+    'is_crypto_symbol',
     'get_us_index_yf_symbol',
     'US_INDEX_MAPPING',
 ]
